@@ -1,0 +1,535 @@
+@import "partials/variables";
+@import "partials/reset";
+@import "partials/mixins";
+@import "partials/buttons";
+
+body {
+	font-family: $sans-serif;
+	color: $txt-primary;
+	-webkit-text-size-adjust: 100%;
+	background: url(../img/greyzz.png) repeat;
+}
+
+a {
+	color: $accent-color;
+	@include transition(color 200ms, background-color 200ms);
+}
+
+.go-top {
+	display: none;
+	position: fixed;
+	opacity: .5;
+	left: 25px;
+	top: 10px;
+	color: $accent-color;
+	&:hover {
+		opacity: 1;
+		@include transition(opacity 300ms ease-in-out);
+		color: $accent-color;
+	}
+}
+
+.hero {
+	min-height: 750px;
+	background: url('../../public/img/hero1.png') center center;
+	@include bg-cover();
+	position: relative;
+	.hero-content {
+		padding-top: 26%;
+	}
+	h1 {
+	  color: $txt-light;
+	  margin-bottom: 40px;
+	}
+	p.intro {
+	  color: $txt-light;
+	  font-size: 20px;
+	  font-weight: 300;
+	  margin-bottom: 80px;
+	}
+}
+
+
+
+header {
+	padding: 50px 0;
+	@include line(rgba(255, 255, 255, 0.2));
+	position: relative;
+	width: 1170px;
+	margin: 0 auto;
+	@include transition (padding 300ms ease-in-out);
+	a {
+		color: $txt-light;
+		text-transform: uppercase;
+		font-size: $nav-font-size;
+
+		&.login {
+			margin-right: 20px;
+		}
+	}
+	.logo {
+		display: block;
+		/* 		
+		visibility: visible;
+		opacity: 1;
+		@include transition(opacity 500s ease-in-out);
+		@include transition(visibility 500s ease-in-out); 
+		*/
+		height: 220px;
+		width: 200px;
+		top: 0;
+		position: absolute;
+		background-color: transparent;
+		@include brad(0 0 50% 50%);
+		text-align: center;
+		padding-top: 10px;
+		a {
+			margin: 0 auto;
+			display: block;
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+			font-size: 0px;
+			@include brad(50%);
+			border: 10px solid $accent-color;
+			background-color: #fff;
+			-moz-box-sizing: border-box; 
+			box-sizing: border-box;
+			img {
+				margin-top: -10px;
+				margin-left: -2px;
+			}
+		}
+		&.inactive {
+			display: none;
+			/* 
+			visibility: hidden;
+			opacity: 0;
+			@include transition(opacity 500s ease-in-out);
+			@include transition(visibility 500s ease-in-out); 
+			*/
+		}
+	}
+	ul.primary-nav {
+		margin: 0 0 0 75px;
+		padding: 0;
+		li {
+			display: inline;
+			a {
+				color: $txt-light;
+				padding-right: 25px;
+				&:hover {
+					color: $accent-color;
+				}
+			}
+			&:last-child a {
+				padding-right: 0;
+			}
+		}
+	}
+	ul.member-actions {
+		li {
+			display: inline;
+			a {
+				color: $txt-light;
+				&:hover {
+					color: $accent-color;
+				}
+			}
+		}
+	}
+	.header-nav {
+		display: inline-block;
+		margin-left: 200px;
+	}
+	.member-actions {
+		position: absolute;
+		right: 0;
+		top: 41px;
+		@include transition(all 300ms ease-in-out);
+	}
+}
+/* NAVIGATION */
+
+.navigation {
+	@include transition(all 300ms ease-in-out);
+	position: fixed;
+	width: 100%;
+	z-index: 999;
+}
+.header-nav.open {
+	visibility: visible;
+	opacity: .9;
+	@include transition(opacity .5s);
+}
+.fixed {
+  position: fixed;
+  background-color: #232731;
+  z-index: 999;
+  width: 100%;
+}
+.nav-toggle {
+	position: absolute;
+	top: 0;
+	right: 15px;
+	z-index: 99999;
+	cursor: pointer;
+	&:focus {
+		outline: none;
+	}
+	span, span:before, span:after {
+		content: "";
+		position: absolute;
+		display: block;
+		width: 35px;
+		height: 3px;
+		@include brad(1px);
+		background: #fff;
+		cursor: pointer;
+		@include transition(all 300ms ease-in-out);
+	}
+	span:before {
+		top: -10px;
+	}
+	span:after {
+		bottom: -10px;
+	}
+	&.active span {
+		background-color: transparent;
+		&:before, &:after {
+			top: 0;
+		}
+		&:before {
+			@include rotate(45);
+		}
+		&:after {
+			top: 10px;
+			@include transform(translatey(-10px) rotate(-45deg));
+		}
+	}
+}
+.navicon {
+	position: absolute;
+	height: 26px;
+	right: 10px;
+	top: 48px;
+	visibility: hidden;
+	@include transition(all 300ms ease-in-out);
+}
+
+/* FOOTER */
+footer {
+  background-color: $footer-primary;
+  position: relative;
+
+  p {
+    color: $txt-accent;
+    font-size: $nav-font-size;
+  }
+  a {
+    color: $txt-light;
+    &:hover {
+    	color: $accent-color;
+    }
+  }
+  ul {
+  	&.footer-group {
+  		border-top: solid 1px #4E566C;
+   		padding-top: 25px;
+    	margin-bottom: 45px;
+    	li {
+    		display: inline-block;
+    		margin-right: 30px;
+    		&:last-child {
+    			margin-right: 0;
+    		}
+    		a {
+    			font-size: $nav-font-size;
+    			text-transform: uppercase;
+    			&:hover {
+    				color: $accent-color;
+    			}
+    		}
+    	}
+  	}
+  }
+  span.fa-heart {
+    color: #ff415c;
+    font-size: 15px;
+    margin: 0 2px;
+  }
+  .footer-links {
+    margin: 90px 0 90px 0;
+    text-align: center;
+  }
+}
+
+.divider {
+	width: 100%;
+	height: 1px;
+	background: transparent;
+	@include line(rgba(224, 224, 224, 0.7));
+	@include box-shadow(0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset);
+}
+
+/* ANOTHER  */
+.portfolio {
+ 	padding-top: 70px;
+ 	margin-bottom: 30px;
+	h1 {
+		@include section-heading();
+	}
+	h5 {
+		margin-bottom: 7px;
+		color: $txt-accent;
+		font-weight: $semibold;
+	}
+  .technologies {
+  	border-top: 1px solid rgba(224, 224, 224, 1);
+  	@include line(rgba(224, 224, 224, 1));
+  	padding: 15px 0;
+  	margin: 15px 0;
+  	ul {
+  		margin-top: 3px;
+  		li {
+			display: inline-block;
+			cursor: pointer;
+  		}
+  	}
+  }
+  .overview {
+  	height: 80px;
+  	overflow: hidden;
+  	margin: 15px 0;
+	p {
+		text-align: justify;
+		color: $txt-primary;
+	}
+  }
+  .my-role {
+	p {
+		text-align: justify;
+		color: $txt-primary;
+	}
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    @include transition(all 300ms ease-in-out);
+  }
+  h4 {
+    font-size: $blog-post-title;
+    color: $txt-accent;
+    font-weight: $semibold;
+    text-transform: uppercase;
+    margin-top: 15px;
+  }
+  .project-title {
+  	display: block;
+  	text-align: center;
+  	margin-top: 30px;
+  	width: 100%;
+  }
+  .btn {
+    margin-top: 20px;
+  }
+  .blog-img-wrap {
+    position: relative;
+    overflow: hidden;
+    margin-top: 15px 0;
+
+    @include box-shadow(0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset);
+    &:after, &:before {
+		content:"";
+	    position:absolute; 
+	    z-index:-1;
+	    @include box-shadow(0 0 20px rgba(0,0,0,0.8));	    
+	    top:0;
+	    bottom:0;
+	    left:10px;
+	    right:10px;
+	    @include brad(10px);
+    }
+    &:after {
+    	right:10px; 
+    	left:auto;
+    	@include skew(8, 8);
+    	@include rotate(3);
+    }
+
+    .overlay {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: rgba($white-color, 0.5);
+      @include transition(all 300ms ease-in-out);
+      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+      filter: alpha(opacity=0);
+      opacity: 0;
+    }
+    i {
+      color: $white-color;
+      font-size: 20px;
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      top: 25px;
+      right: 35px;
+    }
+  }
+  .blog-img-wrap:hover img, .blog-img-wrap:focus img {
+  	@include scale(1.1);
+  }
+  .blog-img-wrap:hover .overlay, .blog-img-wrap:focus .overlay {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=1)";
+    filter: alpha(opacity=1);
+    opacity: 1;
+    z-index: 9;
+  }
+  figcaption  {
+  	i {
+  		margin-left: 5px;
+  		font-size: 15px;
+  	}
+
+  }
+  figcaption a.blog-post-title {
+    color: $txt-primary;
+  }
+  figcaption a.blog-post-title:hover, figcaption a.blog-post-title:focus {
+    color: $txt-secondary;
+  }
+}
+
+/* ABOUT */
+ .about {
+	padding-top: 70px;
+	margin-bottom: 30px;
+	a {
+		color: $time-color;
+	}
+	h1 {
+		@include section-heading();
+	}
+	.nav {
+		text-align: center;
+		//@include line(rgba(224, 224, 224, 1));
+		li {
+			float: none;
+			display: inline-block;
+		}
+	}
+	.tab-pane {
+		position: relative;
+	}
+	.tab-content {
+		margin-top: 15px;
+		.skills {
+			margin-left: 20px;
+			span {
+				margin: 5px;
+			}
+			li {
+				margin-bottom: 3px;
+			}
+		}
+		h4 {
+			display: block;
+			margin-top: 15px;
+			font-weight: bold;
+			@include line(rgba(224, 224, 224, 0.7));
+		}
+		.education {
+			span {
+				margin: 5px;
+			}
+		}
+		.time {
+			font-size: $time-font;
+			color: $time-color;
+			font-weight: bold;
+		}
+		.courses {
+			font-size: $list-font;
+			color: $txt-primary;
+			font-weight: bold;
+			padding: 0 3px;
+		}
+		.sublist {
+			list-style-type: circle;
+			li {
+				margin-left: 20px;
+				font-size: 12px;
+			}
+		}
+	}
+	
+} 
+/* CONTACTS */
+.contacts {
+	padding-top: 70px;
+	margin-bottom: 30px;	
+	h1 {
+		@include section-heading();		
+	}
+	.info-block {
+		display: block;
+		width: 100%;
+		padding: 0 15px;
+		margin: 30px 0;		
+		.info-item {
+			display: block;
+			height: 50px;
+			margin: 15px 5px;
+			line-height: 50px;
+			border-bottom: 1px solid $time-color;
+			color: $time-color;
+			font-weight: 700;
+			.info-icon {
+				display: inline-block;
+				width: 40px;
+				text-align: center;
+			}
+			.info-text {
+				margin-left: 40px;
+				font-size: 20px;
+			}
+		}
+	}
+	.social-share {
+		height: 100%;
+		margin: 30px 0 0 30px;	
+		p {
+		  color: $txt-light;
+		  text-transform: uppercase;
+		  padding-bottom: 10px;
+		}
+		a {
+			color: $txt-light;
+			&:hover {
+				color: $txt-light;
+			}
+			i {
+				margin-top: 20px;
+			}
+			&.twitter-share {
+				@include social-button(#1AB4EF, #1590BF);
+			}
+			&.facebook-share {
+				@include social-button(#3B5898, #324C85);
+			}
+			&.github-share {
+				@include social-button(#000, #555);
+			}			
+			&.linkedin-share {
+				@include social-button(#0177b5, #326898);
+			}
+			&.vk-share {
+				@include social-button(#4c75a3,#5e65a3);
+			}
+
+		}		
+	}
+
+}

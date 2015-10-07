@@ -1,0 +1,24 @@
+{
+  "name": "CV",
+  "version": "1.0.0",
+  "authors": [
+    "onetw012 <lukashenko.a.one@gmail.com>"
+  ],
+  "description": "Portfolio and CV",
+  "main": "app.js",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor",
+    "libs",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.5",
+    "font-awesome": "~4.4.0",
+    "fancybox": "~2.1.5"
+  }
+}

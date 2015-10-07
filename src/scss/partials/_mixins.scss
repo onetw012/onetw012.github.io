@@ -1,0 +1,93 @@
+@mixin bg-cover() {
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+@mixin transition($transition...) {
+    -moz-transition:    $transition;
+    -o-transition:      $transition;
+    -webkit-transition: $transition;
+    transition:         $transition;
+}
+
+@mixin brad ($pix) {
+	-moz-border-radius: $pix;
+	-webkit-border-radius: $pix;
+	border-radius: $pix;
+}
+
+@mixin transform($transforms) {
+	   -moz-transform: $transforms;
+	     -o-transform: $transforms;
+	    -ms-transform: $transforms;
+	-webkit-transform: $transforms;
+          transform: $transforms;
+}
+// rotate
+@mixin rotate ($deg) {
+  @include transform(rotate(#{$deg}deg));
+}
+ 
+// scale
+@mixin scale($scale) {
+	 @include transform(scale($scale));
+} 
+// translate
+@mixin translate ($x, $y) {
+   @include transform(translate($x, $y));
+}
+// skew
+@mixin skew ($x, $y) {
+   @include transform(skew(#{$x}deg, #{$y}deg));
+}
+//transform origin
+@mixin transform-origin ($origin) {
+    -moz-transform-origin: $origin;
+	     -o-transform-origin: $origin;
+	    -ms-transform-origin: $origin;
+	-webkit-transform-origin: $origin;
+          transform-origin: $origin;
+}
+
+@mixin box-shadow($shadow...) {
+    -webkit-box-shadow: $shadow;
+    -moz-box-shadow: $shadow;
+    box-shadow: $shadow;
+}
+
+@mixin text-shadow($shadow...) {
+    -webkit-text-shadow: $shadow;
+    -moz-text-shadow: $shadow;
+    text-shadow: $shadow;
+}
+
+
+
+@mixin section-heading () {
+  text-align: center;
+  /* text-decoration: underline; */
+  font: 42px /* 'LeagueGothicRegular' */;
+  font-weight: bold;
+  @include text-shadow(0px 1px 1px #4d4d4d);  
+}
+
+@mixin line ($color) {
+  border-bottom: 1px solid $color;
+}
+
+@mixin social-button ($color, $hover-color) {
+  height: 65px;
+  width: 65px;
+  background-color: $color;
+  border-radius: 15%;
+  font-size: 22px;
+  display: inline-block;
+  text-align: center;
+  margin-right: 15px;
+  margin-bottom: 30px;
+  &:hover, &:focus {
+    background-color: $hover-color;
+  }
+}
