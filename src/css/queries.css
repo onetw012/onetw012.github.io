@@ -246,6 +246,7 @@
 
 		footer ul.footer-group li {
 			display: block;
+			margin-right: 0px;
 		}
 
 		footer .footer-links {
@@ -259,7 +260,7 @@
 	}
 
 	@media screen and (max-width:480px) {
-		.logo {
+		header .logo {
 			display: none;
 		}
 
@@ -289,7 +290,7 @@
 			display: none;
 		}
 
-		.info-item .info-text {
+		.contacts .info-block .info-item .info-text {
 			margin-left: 10px;
 			font-size: 13px;
 		}
@@ -297,4 +298,11 @@
 	}
 
 	@media screen and (max-width:320px) {
+		header .logo {
+			display: none;
+		}
+		.info-item .info-text {
+			margin-left: 10px;
+			font-size: 13px;
+		}
 	}
